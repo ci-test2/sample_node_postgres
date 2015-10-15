@@ -48,4 +48,6 @@ after_failure:
 addons:
     postgresql : "9.2"
   
+notification:
+  email: false
 
