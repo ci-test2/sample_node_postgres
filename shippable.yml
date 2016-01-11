@@ -1,8 +1,11 @@
-
 #build_image: shippableimages/ubuntu1204_nodejs
 build_image: drydock/u12nodall:tip
+
 language: node_js
 
+services: 
+  - postgres
+  
 node_js:
   - 0.10.25
 
@@ -13,6 +16,7 @@ env:
  # - name=vidya
   - secure: EESpEzi6YSbdi+kiYyN/GlJnKbluhFiL5eUbHSqI9EX+Y9IKJRt0rmRm9EN8t8AsIyZ71X4gVgDYaZIVok4xWvgwD844as9xPMWKFOBAPXXqT1k+Apzx1rxvXtjkyMe+ROmpbsK+GCol59k5EXBZNpM8NVMuplGuQ+dR3O/XRYeVBDAcl3mta+CctQCw5XgKPE0XfipqK0Y7HExxjNYsrnNzsjdUUhNrG73U8dfMlJVqz+ZqAr15q4yEJ2OGXad/WaUir8+2ROclWWG4wsjhTtNeXc8gdNUElJovV1Wtn063dBTsraEdJut3eLZxaE7HHi6OHR5niRTs3lXQ0QLoCA==
   #- secure: INBb85IGKn1Me5fGjSJPFJnBkrjN8IQYGBtLnRrz1MYFzS7BPWjuJmlDekJvUm8HYJ+hJD/aLNSzvtic1cY4Gyluh00vO+6wtcs8y0BTB/GiEmYiAJY/A+lSogZJA5wJBb3QlN7uSYDfZjmDhLxO6ky3QUeiHG8n8SgS7XGWM/TEhCBx/Q3QejM5/Jjk5XlTwVgN7cs02Ty+P1Hc+dYIYGPIlJhS9ig8+6SQIE62ynQ1MEBy7p7xGtVGYRr7HSR1ihjXTlw9OJAnwslfacC7TOb0HJMNwtcGslaVRVOpKpVlIcltxqR40AkOSO9GaQsweszcMNiHRPIfogdDF6heSA==
+  
   #Create a DB as part of before script to use it
 # Make folders for the reports, and create the SQL db
 before_script:
@@ -35,7 +39,7 @@ after_script:
   - ./node_modules/.bin/istanbul report cobertura --dir shippable/codecoverage/
   -  cat ~/.gitconfig
   
-commit_container: ci_test2/sample_node_postgres
+#commit_container: ci_test2/sample_node_postgres
 
 after_failure:
  - echo $user
