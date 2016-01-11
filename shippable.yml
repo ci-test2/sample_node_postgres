@@ -42,5 +42,9 @@ after_failure:
 
 addons:
     postgresql : "9.2"
-  
-
+    
+notifications:
+  email:
+    test_ci2@yahoo.in
+  irc:
+    - "chat.freenode.net#test-irc"
