@@ -1,5 +1,5 @@
 #build_image: shippableimages/ubuntu1204_nodejs
-build_image: drydock/u12nodall:tip
+#build_image: drydock/u12nodall:tip
 
 language: node_js
 
